@@ -1,0 +1,101 @@
+/* ============================================================
+   RESPONSIVE — responsive.css (mobile-first refinements)
+   ============================================================ */
+
+/* ---------- Tablet (<= 991px) ---------- */
+@media (max-width: 991.98px) {
+    .section-pad { padding: 84px 0; }
+    .section-head { margin-bottom: 48px; }
+
+    /* Navbar: menu jadi panel glass slide-in */
+    .nav-menu {
+        position: fixed;
+        top: calc(var(--nav-height) + 8px);
+        left: 16px; right: 16px;
+        flex-direction: column; align-items: stretch; gap: 4px;
+        padding: 20px;
+        background: var(--glass-bg-strong);
+        background: var(--bg-primary);
+        -webkit-backdrop-filter: blur(24px) saturate(1.6);
+        backdrop-filter: blur(24px) saturate(1.6);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-lg);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, .18), var(--glass-highlight);
+        opacity: 0; visibility: hidden; transform: translateY(-14px);
+        transition: opacity .35s var(--ease-out), transform .35s var(--ease-out), visibility .35s;
+        z-index: 1025;
+    }
+    .nav-menu.open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav-link-item { padding: 13px 18px; font-size: 1rem; }
+
+    /* Hero: teks dulu, foto di bawah */
+    .hero-section { min-height: auto; padding-bottom: 90px; }
+    .profile-scene { max-width: 320px; margin-top: 12px; }
+    .scroll-hint { display: none; }
+
+    .hobby-thumb { min-height: 240px; }
+    .hobby-body { padding: 32px; }
+
+    .about-card { padding: 30px; }
+    .contact-form-card { padding: 28px; }
+}
+
+/* ---------- Smartphone (<= 767px) ---------- */
+@media (max-width: 767.98px) {
+    :root { --nav-height: 66px; }
+
+    .section-pad { padding: 70px 0; }
+    .section-title { font-size: 1.85rem; }
+
+    .hero-section { padding-top: calc(var(--nav-height) + 30px); }
+    .hero-cta .btn-glow, .hero-cta .btn-glass { width: 100%; }
+    .hero-meta { gap: 10px; font-size: .82rem; }
+
+    .profile-scene { max-width: 270px; }
+    .float-chip { width: 46px; height: 46px; font-size: 1.15rem; border-radius: 14px; }
+    .chip-1 { right: -8px; }
+    .chip-2 { left: -10px; }
+    .float-badge { font-size: .72rem; padding: 7px 14px; }
+
+    .marquee-group span { font-size: .88rem; }
+
+    .timeline::before { left: 21px; }
+    .timeline-item { padding-left: 62px; }
+    .timeline-node { width: 44px; height: 44px; font-size: .95rem; }
+    .timeline-card { padding: 22px; }
+    .timeline-school { font-size: 1.1rem; }
+
+    .about-card { padding: 26px 22px; }
+    .fact-item { padding: 12px 14px; gap: 12px; }
+    .fact-item i { width: 40px; height: 40px; font-size: 1.1rem; }
+
+    .skill-card { padding: 26px 20px; }
+    .skill-desc { min-height: 0; }
+
+    .contact-form-card { padding: 24px 20px; }
+    .contact-item { padding: 18px 20px; gap: 14px; }
+    .contact-item-icon { width: 46px; height: 46px; }
+
+    .back-to-top { width: 46px; height: 46px; bottom: 20px; right: 20px; }
+
+    .footer-links { gap: 6px 18px; }
+}
+
+/* ---------- Smartphone kecil (<= 380px) ---------- */
+@media (max-width: 380px) {
+    .hero-title { font-size: 2.15rem; }
+    .stat-number { font-size: 1.7rem; }
+    .nav-logo { font-size: 1.1rem; }
+}
+
+/* ---------- Desktop besar ---------- */
+@media (min-width: 1400px) {
+    .container { max-width: 1180px; }
+}
+
+/* ---------- Sentuh: matikan hover melayang ---------- */
+@media (hover: none) {
+    .glass-card:hover { transform: none; }
+    .portfolio-overlay { opacity: 1; background: linear-gradient(180deg, transparent 55%, rgba(10,10,10,.5)); }
+    .overlay-btn { transform: none; width: 44px; height: 44px; }
+}
