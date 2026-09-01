@@ -1,11 +1,11 @@
-FROM dunglas/frankenphp:php8.3-alpine
+FROM dunglas/frankenphp:latest
+
+ENV SERVER_NAME=:80
 
 WORKDIR /app
 
-COPY . /app
+COPY . /app/public
 
-RUN mkdir -p /app/contact/data
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 EXPOSE 80
-
-CMD ["frankenphp", "php-server", "--root", "/app", "--listen", "0.0.0.0:80"]
