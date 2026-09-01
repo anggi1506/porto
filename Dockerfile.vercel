@@ -1,11 +1,9 @@
-FROM dunglas/frankenphp:latest
+FROM php:8.3-apache
 
-ENV SERVER_NAME=:80
+WORKDIR /var/www/html
 
-WORKDIR /app
+COPY . /var/www/html/
 
-COPY . /app/public
-
-RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+RUN a2enmod rewrite
 
 EXPOSE 80
