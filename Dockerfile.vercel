@@ -1,0 +1,11 @@
+FROM dunglas/frankenphp:php8.3-alpine
+
+WORKDIR /app
+
+COPY . /app
+
+RUN mkdir -p /app/contact/data
+
+EXPOSE 80
+
+CMD ["frankenphp", "php-server", "--root", "/app", "--listen", "0.0.0.0:80"]
